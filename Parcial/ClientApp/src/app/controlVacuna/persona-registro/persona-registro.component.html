@@ -1,0 +1,55 @@
+<section class="form-registro">
+    <h1 align="center"> Registrar Vacuna</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Registro de Personas</h2>
+                <form [formGroup]="formGroup">
+                 <div class="form-group">
+                <label>Tipo Documento</label>
+                <input type="text" name= "tipoDocumento" formControlName="tipoDocumento"  
+                    class="form-control" [ngClass]="{ 'is-invalid':  control.tipoDocumento.errors}"/>
+                <div *ngIf="control.tipoDocumento.errors" class="invalid-feedback">
+                    <div *ngIf="control.tipoDocumento.errors.required">Se require el nombre</div>
+                </div>
+                </div>
+                <div class="form-group">
+                    <label>Identificacion</label>
+                    <input type="text"  name="identificacion" formControlName="identificacion"
+                        class="form-control" [ngClass]="{ 'is-invalid':  control.identificacion.errors}"/> 
+                        <div *ngIf="control.identificacion.errors" class="invalid-feedback">
+                            <div *ngIf="control.identificacion.errors.required">Se require la identificacion</div>
+                        </div>
+                    </div>
+                <div class="form-group">
+                            <label>Nombre</label>
+                            <input type="text"name="nombre" formControlName="nombre"  
+                                    class="form-control" [ngClass]="{ 'is-invalid':  control.nombre.errors}"/>
+                            <div *ngIf="control.nombre.errors" class="invalid-feedback">
+                                    <div *ngIf="control.nombre.errors.required">Se require el nombre</div>
+                            </div>
+                        </div>
+                <div class="form-group">
+                     <label>Fecha Nacimiento</label>
+                         <input type="date"  name="fecha" formControlName="fecha"  min="2017-04-01" max="2030-04-20" class="form-control" />
+                    </div>
+                        <div class="form-group">
+                            <label>Institucion Educativa</label>
+                            <input type="text"  name="institucionEducativa" formControlName="institucionEducativa"  class="form-control" />
+                    </div>
+                        <div class="form-group">
+                            <label>Nombre Acudiente</label>
+                            <input type="text"  name="nombreAcudiente" formControlName="nombreAcudiente"  class="form-control" />
+                     </div>
+                    <div class="text-center">
+                            <button class="btn btn-primary mr-1"(click)="onSubmit()" [disabled]="formGroup.invalid">Register</button>
+                            <button class="btn btn-secondary" type="reset">Cancel</button>
+                    </div>
+                 </form>
+            </div>
+        </div>
+    </div>
+        
+   
+</section>
+

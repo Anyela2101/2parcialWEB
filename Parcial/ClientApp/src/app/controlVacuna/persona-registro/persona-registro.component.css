@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form-registro{
+    width: 850px;
+    background:  #7da3f5;
+    padding: 30px;
+    margin: auto;
+    margin-right: -20px;
+    margin-top:-800px;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.form-registro h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
