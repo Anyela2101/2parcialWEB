@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {VacunaService} from '../../services/vacuna.service';
+import {Vacuna} from '../models/vacuna';
+
 
 @Component({
   selector: 'app-vacuna-consulta',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./vacuna-consulta.component.css']
 })
 export class VacunaConsultaComponent implements OnInit {
+  vacunas:Vacuna[];
+  searchText:string;
+  constructor(private vacunaService:VacunaService) { }
 
-  constructor() { }
+  ngOnInit() {
+    this.get();
+  }
 
-  ngOnInit(): void {
+  get(){
+    this.vacunaService.get().subscribe(result =>{
+      this.vacunas = result;
+    });
   }
 
 }

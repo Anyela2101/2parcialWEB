@@ -32,33 +32,21 @@ namespace Datos.Migrations
                     IdentificacionPersona = table.Column<string>(type: "varchar(10)", nullable: true),
                     NombreVacuna = table.Column<string>(type: "varchar(20)", nullable: true),
                     FechaVacuna = table.Column<DateTime>(type: "Date", nullable: false),
-                    EdadAplicacion = table.Column<double>(type: "float", nullable: false),
-                    PersonaIdentificacion = table.Column<string>(nullable: true)
+                    EdadAplicacion = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Vacunas", x => x.VacunaId);
-                    table.ForeignKey(
-                        name: "FK_Vacunas_Personas_PersonaIdentificacion",
-                        column: x => x.PersonaIdentificacion,
-                        principalTable: "Personas",
-                        principalColumn: "Identificacion",
-                        onDelete: ReferentialAction.Restrict);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Vacunas_PersonaIdentificacion",
-                table: "Vacunas",
-                column: "PersonaIdentificacion");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Vacunas");
+                name: "Personas");
 
             migrationBuilder.DropTable(
-                name: "Personas");
+                name: "Vacunas");
         }
     }
 }

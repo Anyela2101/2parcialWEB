@@ -36,8 +36,14 @@ export class VacunaRegistraComponent implements OnInit {
 
   buscar(){
     this.personaService.buscarPersona(this.searchText).subscribe(result =>{
-      this.persona = result;
+      if (this.persona != null) {
+        const messageBox = this.modalService.open(AlertModalComponent)
+        messageBox.componentInstance.title = "Resultado Operación";
+        messageBox.componentInstance.message = 'Persona encontrada!!! :-)';
+        this.persona = result;
+      }
     });
+    
     
   }
 

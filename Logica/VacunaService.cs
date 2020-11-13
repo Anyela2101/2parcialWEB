@@ -33,7 +33,7 @@ namespace Logica
             return _context.Personas.Find(vacuna.IdentificacionPersona);
         }
          public List<Vacuna> ConsultarTodos(){
-            List<Vacuna> vacunas = _context.Vacunas.Include(p => p.Persona).ToList();
+            List<Vacuna> vacunas = _context.Vacunas.ToList();
             return vacunas;
         }
 

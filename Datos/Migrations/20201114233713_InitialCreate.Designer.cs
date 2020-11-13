@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ControlVacunaContext))]
-    [Migration("20201114230843_InitialCreate")]
+    [Migration("20201114233713_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,21 +65,9 @@ namespace Datos.Migrations
                     b.Property<string>("NombreVacuna")
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("PersonaIdentificacion")
-                        .HasColumnType("varchar(10)");
-
                     b.HasKey("VacunaId");
 
-                    b.HasIndex("PersonaIdentificacion");
-
                     b.ToTable("Vacunas");
-                });
-
-            modelBuilder.Entity("Entity.Vacuna", b =>
-                {
-                    b.HasOne("Entity.Persona", "Persona")
-                        .WithMany()
-                        .HasForeignKey("PersonaIdentificacion");
                 });
 #pragma warning restore 612, 618
         }

@@ -26,8 +26,6 @@ namespace Entity
 
          [Column(TypeName = "float")]
         public double EdadAplicacion {get;set;}
-
-        public Persona Persona {get;set;}
         public double CalcularEdadAplicacion(DateTime FechaNacimiento){
             double FechaRestante = FechaVacuna.Subtract(FechaNacimiento).TotalDays;
             FechaRestante/=365;

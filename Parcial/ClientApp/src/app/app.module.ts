@@ -17,6 +17,7 @@ import { VacunaRegistraComponent } from './controlVacuna/vacuna-registra/vacuna-
 import { PersonaService } from './services/persona.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
+import { FiltroVacunaPipe } from './pipe/filtro-vacuna.pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
     PersonaRegistroComponent,
     VacunaConsultaComponent,
     VacunaRegistraComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    FiltroVacunaPipe
   ],
   imports: [
     ReactiveFormsModule,
