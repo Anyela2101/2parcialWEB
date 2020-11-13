@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -9,7 +9,8 @@ import {NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 export class AlertModalComponent implements OnInit {
 
   constructor(public activeModal: NgbActiveModal) { }
-
+  @Input() tittle;
+  @Input() message;
   ngOnInit(): void {
   }
 

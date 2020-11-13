@@ -13,7 +13,7 @@ namespace Parcial.Models
             }
             public string tipoDocumento {get;set;}
             public string identificacion {get;set;}
-            public string nombre {get;set;}
+            public string nombreEstudiante {get;set;}
             public DateTime fechaNacimiento {get;set;}
             public string institucionEducativa {get;set;}
             public string nombreAcudiente {get;set;}
@@ -22,10 +22,10 @@ namespace Parcial.Models
             public PersonaViewModel (Persona persona){
                 tipoDocumento = persona.TipoDocumento;
                 identificacion = persona.Identificacion;
-                nombre = persona.NombreEstudiante;
+                nombreEstudiante = persona.NombreEstudiante;
                 fechaNacimiento = persona.FechaNacimiento;
                 institucionEducativa = persona.InstitucionEducativa;
-                nombreAcudiente = persona.NombreEstudiante;
+                nombreAcudiente = persona.NombreAcudiente;
             }
         }
     }

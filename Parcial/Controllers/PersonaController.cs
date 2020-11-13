@@ -38,11 +38,22 @@ namespace Parcial.Controllers
             return Ok(response.Persona);
         }
 
+        //GET: api/Persona/5
+        [HttpGet("{identificacion}")]
+        public ActionResult<PersonaViewModel> Get(string identificacion){
+            var persona = _personaService.BuscarIdentificacion(identificacion);
+            if(persona== null) return NotFound();
+            var personaViewModel = new PersonaViewModel(persona);
+            return personaViewModel;
+
+        }
+
+        
         private Persona MapearPersona(PersonaInputModel personaInput){
             var persona = new Persona();
             persona.TipoDocumento = personaInput.tipoDocumento;
             persona.Identificacion = personaInput.identificacion;
-            persona.NombreEstudiante = personaInput.nombre;
+            persona.NombreEstudiante = personaInput.nombreEstudiante;
             persona.FechaNacimiento = personaInput.fechaNacimiento;
             persona.InstitucionEducativa = personaInput.institucionEducativa;
             persona.NombreAcudiente = personaInput.nombreAcudiente;

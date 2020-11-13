@@ -57,6 +57,9 @@ namespace Datos.Migrations
                     b.Property<DateTime>("FechaVacuna")
                         .HasColumnType("Date");
 
+                    b.Property<string>("IdentificacionPersona")
+                        .HasColumnType("varchar(10)");
+
                     b.Property<string>("NombreVacuna")
                         .HasColumnType("varchar(20)");
 

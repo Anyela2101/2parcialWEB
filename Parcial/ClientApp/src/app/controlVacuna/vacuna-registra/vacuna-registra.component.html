@@ -1,1 +1,67 @@
-<p>vacuna-registra works!</p>
+<section class="form-registro">
+    <h1 align="center"> Registrar Vacuna</h1>
+    <div class="container">
+        <div class="col-md-6 offset-md-3">
+            <h2>Registro de Personas</h2>
+            <div class="row">
+                <div class="col-10">
+                    <label>Identificacion a Buscar</label>
+                    <input [(ngModel)]="searchText" type="text" class="form-control">
+                    <button class="btn btn-primary mr-1"(click)="buscar()" >Buscar</button>
+                    <button class="btn btn-secondary" type="reset">Cancel</button>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label>Tipo Documento </label>
+                             <input type="text"  name="tipoDocumento" [(ngModel)]=persona.tipoDocumento  readonly disabled/>
+            </div>
+            <div class="form-group">
+                <label> Identificacion   </label>
+                             <input type="text"  name="Identificacion" [(ngModel)]=persona.identificacion  readonly disabled/>
+            </div>
+            <div class="form-group">
+                <label> Nombre    </label>
+                               <input type="text"  name="nombreEstudiante" [(ngModel)]=persona.nombreEstudiante  readonly disabled/>
+            </div>
+            <div class="form-group">
+                <label> Fecha Nacimiento </label>
+                               <input type="string"  name="fechaNacimiento" [(ngModel)]=persona.fechaNacimiento  readonly disabled/>
+            </div>
+            <div class="form-group">
+                <label> Institucion Educativa </label>
+                               <input type="text"  name="institucionEducativa" [(ngModel)]=persona.institucionEducativa  readonly disabled/>
+            </div>
+            <div class="form-group">
+                <label> Nombre Acudiente </label>
+                              <input type="text"  name="nombreAcudiente" [(ngModel)]=persona.nombreAcudiente  readonly disabled/>
+            </div>
+            <form [formGroup]="formGroup">
+                <div class="form-group">
+                    <label>Nombre Vacuna</label>
+                    <input type="text" name= "nombreVacuna" formControlName="nombreVacuna"  
+                        class="form-control" [ngClass]="{ 'is-invalid':  control.nombreVacuna.errors}"/>
+                    <div *ngIf="control.nombreVacuna.errors" class="invalid-feedback">
+                        <div *ngIf="control.nombreVacuna.errors.required">Se require el nombre de la vacuna</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Fecha Vacuna</label>
+                    <input type="date"  name="fechaVacuna" formControlName="fechaVacuna"
+                        class="form-control" [ngClass]="{ 'is-invalid':  control.fechaVacuna.errors}"/> 
+                        <div *ngIf="control.fechaVacuna.errors" class="invalid-feedback">
+                            <div *ngIf="control.fechaVacuna.errors.required">Se require la fecha de la vacuna</div>
+                        </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary mr-1"(click)="onSubmit()" [disabled]="formGroup.invalid">Register</button>
+                    <button class="btn btn-secondary" type="reset">Cancel</button>
+            </div>
+            </form>
+        </div>
+    </div>
+        
+   
+</section>
+
+

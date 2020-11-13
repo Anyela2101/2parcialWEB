@@ -16,21 +16,22 @@ namespace Logica
         {
             _context = context;
         }
-        public GuardarVacunaResponse GuardarVacunaResponse(Vacuna vacuna, Persona persona){
+        public GuardarVacunaResponse GuardarVacunaResponse(Vacuna vacuna){
             try{
-                var vacunaBuscada =_context.Personas.Find(persona.Identificacion);
-                if(vacunaBuscada!=null){
-                    return new GuardarVacunaResponse("Error al estudiante ya se le aplico la vacuna");
-                }
-                vacuna.CalcularEdadAplicacion(persona.FechaNacimiento);
+                var personaBuscada = BuscarPersona(vacuna);
+                vacuna.CalcularEdadAplicacion(personaBuscada.FechaNacimiento);
+
                 _context.Vacunas.Add(vacuna);
                 _context.SaveChanges();
-                return new GuardarVacunaResponse(vacuna, persona);
+                return new GuardarVacunaResponse(vacuna);
             }catch(Exception e){
                 return new GuardarVacunaResponse($"Error de la Aplicacion: {e.Message}");
             }
         }
 
+        public Persona BuscarPersona(Vacuna vacuna){
+            return _context.Personas.Find(vacuna.IdentificacionPersona);
+        }
          public List<Vacuna> ConsultarTodos(){
             List<Vacuna> vacunas = _context.Vacunas.Include(p => p.Persona).ToList();
             return vacunas;
@@ -43,10 +44,9 @@ namespace Logica
     
     public class GuardarVacunaResponse 
     {
-        public GuardarVacunaResponse(Vacuna vacuna, Persona persona)
+        public GuardarVacunaResponse(Vacuna vacuna)
         {
             Error = false;
-            Persona = persona;
             Vacuna = vacuna;
         }
         public GuardarVacunaResponse(string mensaje)
@@ -56,7 +56,6 @@ namespace Logica
         }
         public bool Error { get; set; }
         public string Mensaje { get; set; }
-        public Persona Persona { get; set; }
         public Vacuna Vacuna { get; set; }
     }
 }

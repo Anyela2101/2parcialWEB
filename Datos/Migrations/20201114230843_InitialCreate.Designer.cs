@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Datos.Migrations
 {
     [DbContext(typeof(ControlVacunaContext))]
-    [Migration("20201114072500_InitialCreate")]
+    [Migration("20201114230843_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -58,6 +58,9 @@ namespace Datos.Migrations
 
                     b.Property<DateTime>("FechaVacuna")
                         .HasColumnType("Date");
+
+                    b.Property<string>("IdentificacionPersona")
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("NombreVacuna")
                         .HasColumnType("varchar(20)");

@@ -1,5 +1,5 @@
 <section class="form-registro">
-    <h1 align="center"> Registrar Vacuna</h1>
+    <h1 align="center"> Registrar Estudiante</h1>
     <div class="container">
         <div class="row">
             <div class="col-md-6 offset-md-3">
@@ -20,22 +20,22 @@
                         <div *ngIf="control.identificacion.errors" class="invalid-feedback">
                             <div *ngIf="control.identificacion.errors.required">Se require la identificacion</div>
                         </div>
-                    </div>
+                </div>
                 <div class="form-group">
                             <label>Nombre</label>
-                            <input type="text"name="nombre" formControlName="nombre"  
-                                    class="form-control" [ngClass]="{ 'is-invalid':  control.nombre.errors}"/>
-                            <div *ngIf="control.nombre.errors" class="invalid-feedback">
-                                    <div *ngIf="control.nombre.errors.required">Se require el nombre</div>
+                            <input type="text"name="nombreEstudiante" formControlName="nombreEstudiante"  
+                                    class="form-control" [ngClass]="{ 'is-invalid':  control.nombreEstudiante.errors}"/>
+                            <div *ngIf="control.nombreEstudiante.errors" class="invalid-feedback">
+                                    <div *ngIf="control.nombreEstudiante.errors.required">Se require el nombre</div>
                             </div>
                         </div>
                 <div class="form-group">
                      <label>Fecha Nacimiento</label>
-                         <input type="date"  name="fecha" formControlName="fecha"  min="2017-04-01" max="2030-04-20" class="form-control" />
+                         <input type="date"  name="fecha" formControlName="fecha"  min="2017-04-01" max="2030-04-20" class="form-control"/>
                     </div>
                         <div class="form-group">
                             <label>Institucion Educativa</label>
-                            <input type="text"  name="institucionEducativa" formControlName="institucionEducativa"  class="form-control" />
+                            <input type="text"  name="institucionEducativa" formControlName="institucionEducativa"  class="form-control"/>
                     </div>
                         <div class="form-group">
                             <label>Nombre Acudiente</label>

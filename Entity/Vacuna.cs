@@ -8,14 +8,16 @@ namespace Entity
     {
         public Vacuna()
         {
-          Persona = new Persona();   
+          
         }
         [Key]
 
         [Column(TypeName = "int")]
         public int VacunaId {get;set;}
 
-         
+        [Column(TypeName = "varchar(10)")]
+        public string IdentificacionPersona {get;set;}
+        
         [Column(TypeName = "varchar(20)")]
         public string NombreVacuna {get;set;}
 
@@ -29,7 +31,7 @@ namespace Entity
         public double CalcularEdadAplicacion(DateTime FechaNacimiento){
             double FechaRestante = FechaVacuna.Subtract(FechaNacimiento).TotalDays;
             FechaRestante/=365;
-            FechaRestante =EdadAplicacion;
+            EdadAplicacion = FechaRestante;
             return FechaRestante;
         }
     }

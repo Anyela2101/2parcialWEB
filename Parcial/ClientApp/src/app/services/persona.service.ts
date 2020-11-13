@@ -32,4 +32,12 @@ export class PersonaService {
             catchError(this.handleErrorService.handleError<Persona>('Registrar Persona', null))
         );
   }
+
+  buscarPersona(identificacion:string): Observable<Persona>{
+    return this.http.get<Persona>(this.baseUrl +'api/Persona/'+identificacion)
+    .pipe(
+      tap(_ => this.handleErrorService.log('datos enviados')),
+      catchError(this.handleErrorService.handleError<Persona>('buscar', null))
+    );
+  }
 }

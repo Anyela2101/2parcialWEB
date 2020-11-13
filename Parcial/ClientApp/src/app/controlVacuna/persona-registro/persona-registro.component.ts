@@ -22,14 +22,14 @@ export class PersonaRegistroComponent implements OnInit {
   private buildForm(){
     this.persona.tipoDocumento ='';
     this.persona.identificacion='';
-    this.persona.nombre='';
+    this.persona.nombreEstudiante='';
     this.persona.fechaNacimiento= new Date(Date.now());
     this.persona.institucionEducativa ='';
     this.persona.nombreAcudiente='';
     this.formGroup = this.formBuilder.group({
       tipoDocumento: [this.persona.tipoDocumento, [Validators.required, Validators.min(1)]],
       identificacion: [this.persona.identificacion,Validators.required],
-      nombre: [this.persona.nombre, Validators.required],
+      nombreEstudiante: [this.persona.nombreEstudiante, Validators.required],
       fecha: [this.persona.fechaNacimiento, [Validators.required, Validators.min(1)]],
       institucionEducativa: [this.persona.institucionEducativa, Validators.required],
       nombreAcudiente: [this.persona.nombreAcudiente, Validators.required]

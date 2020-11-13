@@ -33,6 +33,10 @@ namespace Logica
             List<Persona> personas = _context.Personas.ToList();
             return personas;
         }
+
+        public Persona BuscarIdentificacion(string identificacion){
+            return _context.Personas.Find(identificacion);
+        }
     }
     public class GuardarPersonaResponse 
     {
