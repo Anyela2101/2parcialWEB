@@ -15,6 +15,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { VacunaConsultaComponent } from './controlVacuna/vacuna-consulta/vacuna-consulta.component';
 import { VacunaRegistraComponent } from './controlVacuna/vacuna-registra/vacuna-registra.component';
 import { PersonaService } from './services/persona.service';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AlertModalComponent } from './@base/alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { PersonaService } from './services/persona.service';
     PersonaConsultaComponent,
     PersonaRegistroComponent,
     VacunaConsultaComponent,
-    VacunaRegistraComponent
+    VacunaRegistraComponent,
+    AlertModalComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -38,8 +41,10 @@ import { PersonaService } from './services/persona.service';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
     ]),
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
+  entryComponents:[AlertModalComponent],
   providers: [PersonaService],
   bootstrap: [AppComponent]
 })
